@@ -20,8 +20,10 @@ def selectionSort(customList):
     """
     Sort a list using selection sort algorithm.
     
-    Implements selection sort which repeatedly finds the minimum element from
-    the unsorted portion of the list and places it in the sorted portion.
+    Sorting is achieved by dividing the array into two portions: sorted (growing
+    from left) and unsorted (shrinking from right). The algorithm repeatedly finds
+    the minimum element from the unsorted portion and moves it to extend the sorted
+    portion, building the sorted array incrementally from left to right.
     
     Args:
         customList (list): The list to be sorted (modified in-place).

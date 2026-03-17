@@ -18,9 +18,10 @@ def bubbleSort(customList):
     """
     Sort a list using bubble sort algorithm.
     
-    Implements bubble sort which compares adjacent elements and swaps them
-    if they are in the wrong order. This process is repeated until the
-    list is sorted.
+    Sorting is achieved by repeatedly comparing adjacent elements and swapping them
+    if they are in wrong order, with larger elements 'bubbling' to their correct
+    position at the end after each complete pass through the list. This process
+    repeats until no more swaps are needed, indicating the list is sorted.
     
     Args:
         customList (list): The list to be sorted (modified in-place).

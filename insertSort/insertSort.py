@@ -24,8 +24,10 @@ def insertSort(customList):
     """
     Sort a list using insertion sort algorithm.
     
-    Iterates through the list, and for each element, finds its correct position
-    in the sorted portion and inserts it there.
+    Sorting is achieved by building the sorted array one element at a time.
+    Each element is removed from the unsorted portion, compared with elements
+    in the already-sorted portion, and inserted into its correct position.
+    This grows the sorted portion from left to right until the entire array is sorted.
     
     Args:
         customList (list): The list to be sorted.
@@ -51,8 +53,10 @@ def bucketSort(customList):
     """
     Sort a list using bucket sort algorithm.
     
-    Divides the list into a set number of buckets, distributes elements into
-    buckets based on their values, then sorts each bucket using insertion sort.
+    Sorting is achieved by distributing elements into multiple buckets based on
+    their value ranges, sorting each bucket individually (using insertion sort),
+    and then concatenating all buckets in order. This distributes the sorting work
+    across buckets, reducing comparisons compared to sorting the entire array at once.
     
     Args:
         customList (list): The list to be sorted.
@@ -82,8 +86,11 @@ def mergeSort(customList):
     """
     Sort a list using merge sort algorithm.
     
-    Implements a divide-and-conquer approach that recursively divides the list
-    into smaller sublists and merges them back together in sorted order.
+    Sorting is achieved using divide-and-conquer: the array is recursively divided
+    into single elements (divide phase), then pairs of elements are merged in sorted
+    order (conquer phase), progressively combining larger sorted sublists until the
+    entire array is sorted. The merge operation maintains sorted order by comparing
+    elements from two sublists consecutively.
     
     Args:
         customList (list): The list to be sorted.
@@ -101,8 +108,10 @@ def mergeSort(customList):
         """
         Merge two sorted sublists into a single sorted list.
         
-        Takes a list and merges the sorted sublists from index l to r
-        into a single sorted list.
+        Merging is achieved by comparing elements from the left and right sorted
+        sublists consecutively, adding the smaller element to the result, and
+        advancing in that sublist. This maintains sorted order while combining
+        two sorted portions into one.
         
         Args:
             someList (list): The list containing the sublists to merge.
@@ -139,6 +148,12 @@ def quickSort(customList):
     """
     Sort a list using quick sort algorithm (recursive implementation).
     
+    Sorting is achieved using divide-and-conquer: a pivot element is selected,
+    the array is partitioned so elements smaller than the pivot move left and
+    larger elements move right, then quicksort is recursively applied to both
+    partitions. This divides the problem into smaller subproblems that are
+    solved independently.
+    
     Implements a divide-and-conquer approach that selects a pivot element
     and partitions the list into elements less than and greater than the pivot.
     
@@ -166,11 +181,14 @@ def quickSort(customList):
     return left
 
 def quickSort_iterative(customList):
-    """
-    Sort a list using quick sort algorithm (iterative implementation).
+    """Sort a list using quick sort algorithm (iterative implementation).
     
-    Implements an iterative version of quick sort using an explicit stack
-    to keep track of partitions to be sorted.
+    Sorting is achieved using divide-and-conquer with an explicit stack instead of
+    recursion: ranges to be sorted are pushed on the stack, the top range is popped
+    and partitioned around a pivot, then the left and right partitions are pushed
+    consecutively for processing. This achieves the same divide-and-conquer effect
+    while avoiding recursive function call overhead.
+    
     
     Args:
         customList (list): The list to be sorted (modified in-place).

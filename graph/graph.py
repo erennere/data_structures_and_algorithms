@@ -69,7 +69,13 @@ class Graph:
         return True
     
     def bfs(self, start):
-        if start not in self.adjacency_list:
+        """Perform breadth-first search (BFS) graph traversal.
+        
+        Traversal is achieved by exploring vertices level by level: the starting vertex
+        is enqueued, then for each dequeued vertex, all unvisited adjacent vertices are
+        visited and enqueued consecutively. This ensures all vertices at distance k are
+        visited before any vertex at distance k+1, exploring in breadth across levels.
+        
             raise ValueError(f'{start} not in the graph')
 
         visited = {start}
@@ -85,7 +91,13 @@ class Graph:
                     queue.append(neighbor)
 
     def dfs(self, start):
-        if start not in self.adjacency_list:
+        """Perform depth-first search (DFS) graph traversal.
+        
+        Traversal is achieved by exploring as far as possible along each branch before
+        backtracking: the starting vertex is pushed on a stack, then for each popped
+        vertex, unvisited adjacent vertices are pushed consecutively. This ensures each
+        branch is fully explored from root to leaf before exploring the next branch.
+        
             raise ValueError(f'{start} not in the graph')
 
         visited = {start}
@@ -101,7 +113,13 @@ class Graph:
                     stack.append(neighbor)
 
     def topologicalSort(self):
-        visited = set()
+        """Perform topological sorting of a directed acyclic graph (DAG).
+        
+        Sorting is achieved by performing depth-first search on all unvisited vertices,
+        adding each vertex to a result stack after exploring all its neighbors. Vertices
+        with no outgoing edges are added first, progressively building a topological
+        order where every edge u->v has u appearing before v in the final ordering.
+        
         stack = []
         for vertex in self.adjacency_list:
             if vertex not in visited:

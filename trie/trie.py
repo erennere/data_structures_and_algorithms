@@ -33,11 +33,17 @@ class Trie:
     def addString(self, string):
         """Add a string to the trie.
         
-        Traverses or creates nodes for each character in the string,
-        marking the final node as the end of a valid word.
+        String insertion is achieved by traversing character-by-character from the
+        root, creating new nodes as needed for characters not yet in the path.
+        After processing all characters, the final node is marked as the end of a
+        valid word. This builds a shared prefix structure where common prefixes
+        reuse existing nodes, making it efficient for storing many similar strings.
         
         Args:
             string (str): The string to add to the trie.
+        
+        Time Complexity: O(M) where M is the length of the string
+        Space Complexity: O(M) in worst case for new nodes
         """
         current_node = self.root
         for char in string:
@@ -49,13 +55,19 @@ class Trie:
     def search(self, string):
         """Search for a string in the trie.
         
-        Returns True only if the exact string exists in the trie.
+        Searching is achieved by traversing character-by-character from the root,
+        following existing child nodes. If any character is not found in the children,
+        the string is not in the trie. If all characters are found and the final node
+        is marked as an end-of-word, the string exists in the trie.
         
         Args:
             string (str): The string to search for.
         
         Returns:
             bool: True if the string exists, False otherwise.
+        
+        Time Complexity: O(M) where M is the length of the string
+        Space Complexity: O(1)
         """
         current_node = self.root
         for char in string:

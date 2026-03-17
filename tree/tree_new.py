@@ -139,7 +139,10 @@ class Tree:
     def preorder_traverse(self):
         """Perform preorder traversal, printing each node's value.
         
-        Visits nodes in preorder: current node, then children.
+        Traversal is achieved by processing nodes in preorder sequence: visit the
+        current node first, then recursively visit each child from left to right.
+        This visits parent nodes before their children, useful for copying trees
+        or getting a tree structure representation.
         """
         print(self.root)
         for child in self.children:
@@ -148,7 +151,10 @@ class Tree:
     def postorder_traverse(self):
         """Perform postorder traversal, printing each node's value.
         
-        Visits nodes in postorder: children first, then current node.
+        Traversal is achieved by processing nodes in postorder sequence: recursively
+        visit each child from left to right, then visit the current node last. This
+        visits children before their parent, useful for deleting trees or calculating
+        tree properties from bottom-up.
         """
         for child in self.children:
             child.postorder_traverse()
@@ -157,7 +163,10 @@ class Tree:
     def breadth_first_traverse(self):
         """Perform breadth-first (level-order) traversal, printing each node's value.
         
-        Visits nodes level by level from top to bottom.
+        Traversal is achieved by exploring the tree level by level using a queue:
+        enqueue the root, then for each dequeued node, enqueue all its children
+        before processing the next node. This visits all nodes at depth k before
+        visiting nodes at depth k+1, ensuring level-by-level exploration.
         """
         queue = Queue()
         queue.enqueue(self)
@@ -262,8 +271,10 @@ class BinaryTree():
     def preorder_traverse(self):
         """Perform preorder traversal, printing each node's value.
         
-        Visits nodes in preorder: current node, left subtree, right subtree.
-        """
+        Traversal is achieved by visiting nodes in preorder sequence: process the
+        current node first, then recursively process the left subtree, then the
+        right subtree. This visits parent nodes before their children, useful for
+        creating a tree copy or getting parent-first viewing.
         def _preorder_traverse(node):
             print(node.value)
             if node.left:
@@ -275,8 +286,10 @@ class BinaryTree():
     def postorder_traverse(self):
         """Perform postorder traversal, printing each node's value.
         
-        Visits nodes in postorder: left subtree, right subtree, current node.
-        """
+        Traversal is achieved by visiting nodes in postorder sequence: recursively
+        process the left subtree, then the right subtree, then process the current
+        node last. This visits children before their parent, useful for tree
+        deletion or calculating aggregate properties bottom-up.
         def _postorder_traverse(node):
             if node.left:
                 _postorder_traverse(node.left)
@@ -288,9 +301,10 @@ class BinaryTree():
     def inorder_traverse(self):
         """Perform inorder traversal, printing each node's value.
         
-        For binary search trees, produces values in sorted order.
-        Visits nodes in inorder: left subtree, current node, right subtree.
-        """
+        Traversal is achieved by visiting nodes in inorder sequence: recursively
+        process the left subtree, then process the current node, then the right
+        subtree. For binary search trees, this produces values in sorted order,
+        useful for extracting sorted data from a BST.
         def _inorder_traverse(node):
             if node.left:
                 _inorder_traverse(node.left)
@@ -302,8 +316,10 @@ class BinaryTree():
     def breadth_first_traverse(self):
         """Perform breadth-first (level-order) traversal, printing each node's value.
         
-        Visits nodes level by level from top to bottom, left to right.
-        """
+        Traversal is achieved by exploring the tree level by level using a queue:
+        enqueue the root, then for each dequeued node, enqueue its left and right
+        children before processing. This visits all nodes at depth k before depth k+1,
+        ensuring level-by-level exploration from top to bottom.
         queue = Queue()
         queue.enqueue(self.root)
         while queue.size:

@@ -36,7 +36,12 @@ class BinaryHeap:
     def levelOrderTraversal(self):
         """Perform and print level-order traversal of the heap.
         
-        Prints all elements currently in the heap.
+        Traversal is achieved by processing heap elements by their array indices
+        from 1 to count, which naturally visits nodes level-by-level in the complete
+        binary tree representation. This displays all elements currently in the heap.
+        
+        Time Complexity: O(N) where N is the number of elements
+        Space Complexity: O(1)
         """
         if not self.data:
             return
@@ -47,8 +52,15 @@ class BinaryHeap:
     def peek(self):
         """Get the root element without removing it.
         
+        Peeking is achieved by accessing the element at index 1, which is always the
+        root of the complete binary tree representation. For min-heaps, this is the
+        minimum element; for max-heaps, the maximum. Returns None if heap is empty.
+        
         Returns:
             The root element (minimum for min-heap, maximum for max-heap), or None if empty.
+        
+        Time Complexity: O(1)
+        Space Complexity: O(1)
         """
         if self.count == 0:
             return None
@@ -57,11 +69,17 @@ class BinaryHeap:
     def _heapifyUp(self, index, heapType):
         """Move an element up the heap until heap property is restored.
         
-        Used after insertion to maintain heap property.
+        Heapifying up is achieved by comparing the element with its parent and
+        swapping if they violate the heap property (for min-heap: child < parent,
+        for max-heap: child > parent). This process repeats at each level up until
+        reaching the correct position, restoring the heap property after insertion.
         
         Args:
             index (int): The index of the element to move up.
             heapType (str): Type of heap to determine comparison direction.
+        
+        Time Complexity: O(log N) where N is the number of elements
+        Space Complexity: O(1)
         """
         while index > 1:
             parent_index = index // 2

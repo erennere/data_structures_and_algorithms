@@ -53,8 +53,15 @@ class LinkedList:
     def append(self, value):
         """Add a value to the end of the linked list.
         
+        Appending is achieved by creating a new node and linking it at the end: if the
+        list is empty, the new node becomes both head and tail; otherwise, the current
+        tail's next pointer is updated to point to the new node, making it the new tail.
+        
         Args:
             value: The value to append.
+        
+        Time Complexity: O(1)
+        Space Complexity: O(1)
         """
         node = Node(value)
         if self.head is None:
@@ -68,8 +75,15 @@ class LinkedList:
     def prepend(self, value):
         """Add a value to the beginning of the linked list.
         
+        Prepending is achieved by creating a new node and making it the new head:
+        the new node's next pointer is set to the current head, then the new node
+        becomes the new head. This maintains list continuity while adding at the front.
+        
         Args:
             value: The value to prepend.
+        
+        Time Complexity: O(1)
+        Space Complexity: O(1)
         """
         node = Node(value)
         if self.head is None:

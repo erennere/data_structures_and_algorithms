@@ -43,8 +43,15 @@ class LinkedList():
     def append(self, value):
         """Add a node to the end of the list.
         
+        Appending to the queue backing list is achieved by creating a new node and
+        linking it at the end: if empty, it becomes both head and tail; otherwise,
+        the current tail's next pointer is updated and the new node becomes the tail.
+        
         Args:
             value: The data to append.
+        
+        Time Complexity: O(1)
+        Space Complexity: O(1)
         """
         node = Node(value)
         if self.length == 0:
@@ -58,8 +65,15 @@ class LinkedList():
     def pop_first(self):
         """Remove and return the first node from the list.
         
+        Removing from the queue backing list is achieved by capturing the current
+        head, updating head to point to the next node, and returning the removed node.
+        This maintains FIFO order by removing from the front.
+        
         Returns:
             Node: The removed node, or None if the list is empty.
+        
+        Time Complexity: O(1)
+        Space Complexity: O(1)
         """
         if self.length:
             node = self.head
@@ -77,16 +91,29 @@ class Queue():
     def enqueue(self, job):
         """Add an item to the back of the queue.
         
+        Enqueueing is achieved by appending the item to the tail of the linked list,
+        maintaining FIFO order where items added later wait behind items added earlier.
+        
         Args:
             job: The data to enqueue.
+        
+        Time Complexity: O(1)
+        Space Complexity: O(1)
         """
         self.LinkedList.append(job)
     
     def dequeue(self):
         """Remove and return the item from the front of the queue.
         
+        Dequeueing is achieved by removing the head node from the linked list,
+        maintaining FIFO order where the oldest (first enqueued) item is always
+        removed first. This gives the queue FIFO (First-In-First-Out) semantics.
+        
         Returns:
             The dequeued data, or None if the queue is empty.
+        
+        Time Complexity: O(1)
+        Space Complexity: O(1)
         """
         if self.LinkedList.head:
             return self.LinkedList.pop_first().value

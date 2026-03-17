@@ -19,8 +19,10 @@ def linearSearch(arr, val):
     """
     Perform a linear search to find a value in an array.
     
-    Iterates through each element of the array to find the target value.
-    Suitable for unsorted arrays.
+    Searching is achieved by sequentially checking each element against the target
+    value from start to end. The element at each position is examined consecutively
+    until the target is found or the array ends. This works on both sorted and
+    unsorted arrays.
     
     Args:
         arr (list): The array to search.
@@ -41,8 +43,11 @@ def binarySearch(arr, val):
     """
     Perform a binary search to find a value in a sorted array.
     
-    Uses divide-and-conquer to efficiently search for a value in a sorted array
-    by eliminating half of the remaining elements in each iteration.
+    Searching is achieved by repeatedly dividing the search space in half using
+    the middle element as comparison point. The target is compared with the middle
+    element; if equal it's found, otherwise the search continues in the appropriate
+    half (left if smaller, right if larger), eliminating half of remaining elements
+    with each iteration. Requires the array to be sorted.
     
     Args:
         arr (list): A sorted array to search.
@@ -70,8 +75,10 @@ def mergeSort(arr):
     """
     Sort an array using merge sort algorithm.
     
-    Divides the array into halves recursively and merges them back together
-    in sorted order. Efficient divide-and-conquer algorithm.
+    Sorting is achieved using divide-and-conquer: the array is recursively divided
+    in half until single elements remain (base case), then the divided portions are
+    merged back together in sorted order by comparing elements from each half
+    consecutively and maintaining relative order.
     
     Args:
         arr (list): The array to be sorted.
