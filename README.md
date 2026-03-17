@@ -2,6 +2,10 @@
 
 A comprehensive Python implementation of fundamental data structures and algorithms, designed for educational purposes. This project demonstrates various computational concepts with clean, well-documented code.
 
+I have written the implementation myself while following the Udemy Course on Data Structures and Algorithms by Elshad Karimov https://www.udemy.com/course/data-structures-and-algorithms-bootcamp-in-python/
+
+The README.md file as well as the documentation and docstrings have been created by AI so it might include errors. 
+
 ## Project Overview
 
 This repository contains implementations of key data structures and algorithms commonly used in computer science. Each folder contains focused implementations with detailed docstrings and usage examples. The project is organized by concept, making it easy to explore and learn each topic independently.
